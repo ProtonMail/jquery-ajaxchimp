@@ -1,0 +1,20 @@
+{
+  "name": "jquery-ajaxchimp",
+  "version": "1.0.0",
+  "description": "AjaxChimp is a jQuery plugin that lets you ajaxify your mailchimp form.",
+  "main": "jquery.ajaxchimp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProtonMail/jquery-ajaxchimp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ProtonMail/jquery-ajaxchimp/issues"
+  },
+  "homepage": "https://github.com/ProtonMail/jquery-ajaxchimp#readme"
+}
