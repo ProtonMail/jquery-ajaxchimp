@@ -3,6 +3,8 @@ Mailchimp Ajax Submit
 jQuery Plugin
 Author: Siddharth Doshi
 
+MODIFED BY JASON STOCKMAN AUG 2019
+
 Use:
 ===
 $('#form_id').ajaxchimp(options);
@@ -30,7 +32,7 @@ For e.g. 'http://blahblah.us1.list-manage.com/subscribe/post-json?u=5afsdhfuhdsi
 
     $.ajaxChimp = {
         responses: {
-            'We have sent you a confirmation email'                                             : 0,
+            'Redirecting...'                                             : 0,
             'Please enter a value'                                                              : 1,
             'An email address must contain a single @'                                          : 2,
             'The domain portion of the email address is invalid (the portion after the @: )'    : 3,
@@ -58,7 +60,7 @@ For e.g. 'http://blahblah.us1.list-manage.com/subscribe/post-json?u=5afsdhfuhdsi
 
             var url = settings.url.replace('/post?', '/post-json?').concat('&c=?');
 
-            form.attr('novalidate', 'true');
+            // form.attr('novalidate', 'true');
             email.attr('name', 'EMAIL');
 
             form.submit(function () {
@@ -66,11 +68,9 @@ For e.g. 'http://blahblah.us1.list-manage.com/subscribe/post-json?u=5afsdhfuhdsi
                 function successCallback(resp) {
                     if (resp.result === 'success') {
                         msg = 'We have sent you a confirmation email';
-                        label.removeClass('error').addClass('valid');
-                        email.removeClass('error').addClass('valid');
+                        label.removeClass('alert alert-danger').addClass('alert alert-info');
                     } else {
-                        email.removeClass('valid').addClass('error');
-                        label.removeClass('valid').addClass('error');
+                        label.removeClass('alert alert-info').addClass('alert alert-danger');
                         var index = -1;
                         try {
                             var parts = resp.msg.split(' - ', 2);
@@ -128,7 +128,7 @@ For e.g. 'http://blahblah.us1.list-manage.com/subscribe/post-json?u=5afsdhfuhdsi
                 });
 
                 // Translate and display submit message
-                var submitMsg = 'Submitting...';
+                var submitMsg = '<div class="alert alert-info"><i class="fa fa-spinner fa-spin"></i> Submitting...</div>';
                 if(
                     settings.language !== 'en'
                     && $.ajaxChimp.translations
